@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberLearn - <?= $title ?? 'Platform Belajar Cybersecurity' ?></title>
+    <title>Unimal CodeVerse - <?= $title ?? 'Platform Belajar Online' ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
 </head>
@@ -14,11 +14,11 @@
     <?php $current = uri_string(); ?>
     <header class="topnav">
         <div class="cl-container topnav-inner">
-            <a class="topnav-brand" href="<?= base_url('dashboard') ?>">CyberLearn</a>
+            <a class="topnav-brand" href="<?= base_url('dashboard') ?>">Unimal CodeVerse</a>
             <button class="topnav-toggle" data-topnav-toggle aria-label="Buka menu">☰</button>
             <nav class="topnav-links">
                 <a href="<?= base_url('dashboard') ?>" class="<?= $current === 'dashboard' ? 'active' : '' ?>">Dashboard</a>
-                <a href="<?= base_url('basic-course') ?>" class="<?= str_contains($current, 'basic-course') ? 'active' : '' ?>">Basic Course</a>
+                <a href="<?= base_url('basic-course') ?>" class="<?= str_contains($current, 'basic-course') ? 'active' : '' ?>">Course</a>
                 <a href="<?= base_url('all-class') ?>" class="<?= str_contains($current, 'all-class') ? 'active' : '' ?>">All Class</a>
                 <a href="<?= base_url('role/jelajahi') ?>" class="<?= str_contains($current, 'role/jelajahi') ? 'active' : '' ?>">Jelajahi Role</a>
                 <a href="<?= base_url('learning-paths') ?>" class="<?= str_contains($current, 'learning-paths') ? 'active' : '' ?>">My Paths</a>
