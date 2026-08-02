@@ -28,8 +28,7 @@ class UserRoleProgressModel extends Model
     {
         $db = \Config\Database::connect();
 
-        // Progress % dihitung dari rata-rata watch_percentage video intermediate
-        // milik role tsb yang sudah punya baris progress_video untuk user ini
+       
         $sql = "
             SELECT
                 urp.role_id,
