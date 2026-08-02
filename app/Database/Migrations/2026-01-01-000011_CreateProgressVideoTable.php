@@ -17,7 +17,6 @@ class CreateProgressVideoTable extends Migration
             'updated_at' => ['type' => 'TIMESTAMP', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
-        // Satu user hanya punya satu baris progress per video (dipakai untuk UPSERT saat tracking)
         $this->forge->addUniqueKey(['user_id', 'video_id']);
         $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('video_id', 'videos', 'id', 'CASCADE', 'CASCADE');
