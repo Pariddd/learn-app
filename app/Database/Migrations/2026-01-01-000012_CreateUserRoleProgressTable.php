@@ -16,7 +16,6 @@ class CreateUserRoleProgressTable extends Migration
             'started_at' => ['type' => 'TIMESTAMP', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
-        // Mencegah role yang sama tercatat aktif dua kali untuk user yang sama
         $this->forge->addUniqueKey(['user_id', 'role_id']);
         $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('role_id', 'roles_spesialisasi', 'id', 'CASCADE', 'CASCADE');

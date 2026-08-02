@@ -4,9 +4,14 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class CreateQuizKategoriBobotTable extends Migration
+class DropQuizKategoriBobotTable extends Migration
 {
     public function up()
+    {
+        $this->forge->dropTable('quiz_kategori_bobot', true);
+    }
+
+    public function down()
     {
         $this->forge->addField([
             'id' => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
@@ -19,10 +24,5 @@ class CreateQuizKategoriBobotTable extends Migration
         $this->forge->addForeignKey('quiz_id', 'quiz_penentuan_role', 'id', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('kategori_id', 'kategori_minat', 'id', 'RESTRICT', 'CASCADE');
         $this->forge->createTable('quiz_kategori_bobot');
-    }
-
-    public function down()
-    {
-        $this->forge->dropTable('quiz_kategori_bobot');
     }
 }

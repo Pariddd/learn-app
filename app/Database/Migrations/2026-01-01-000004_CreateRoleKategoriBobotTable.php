@@ -15,10 +15,9 @@ class CreateRoleKategoriBobotTable extends Migration
             'bobot' => ['type' => 'DECIMAL', 'constraint' => '3,2'],
         ]);
         $this->forge->addKey('id', true);
-        // Mencegah duplikat pasangan role-kategori yang akan merusak perhitungan vektor
         $this->forge->addUniqueKey(['role_id', 'kategori_id']);
         $this->forge->addForeignKey('role_id', 'roles_spesialisasi', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('kategori_id', 'kategori_minat', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('kategori_id', 'kategori_minat', 'id', 'RESTRICT', 'CASCADE');
         $this->forge->createTable('role_kategori_bobot');
     }
 
