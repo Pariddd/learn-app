@@ -9,7 +9,6 @@ use App\Models\VideoModel;
 
 class BasicCourse extends BaseController
 {
-    protected $helpers = ['text'];
     public function index()
     {
         $userId = session()->get('user_id');

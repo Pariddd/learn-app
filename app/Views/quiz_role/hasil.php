@@ -1,52 +1,33 @@
 <?= $this->extend('layouts/main') ?>
-
 <?= $this->section('content') ?>
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-            <div class="mb-4">
-                <span class="badge bg-success rounded-circle p-3 shadow-lg">
-                    <i class="bi bi-trophy fs-1"></i>
-                </span>
-            </div>
 
-            <h1 class="fw-bold mb-2">Hasil Rekomendasi Role Kamu</h1>
-            <p class="text-muted mb-4">Berdasarkan analisis algoritma <em>Cosine Similarity</em>, berikut adalah role spesialisasi yang paling cocok:</p>
+<div style="max-width: 520px; margin: 0 auto;">
+    <div class="cl-card card-pad cl-text-center" style="padding: 40px 32px;">
+        <p class="eyebrow cl-mb-3">hasil rekomendasi</p>
 
-            <div class="card border-0 shadow-lg overflow-hidden mb-4">
-                <div class="bg-primary text-white py-4 px-3">
-                    <h5 class="text-uppercase tracking-wider small fw-bold text-white-50 mb-1">Rekomendasi Utama</h5>
-                    <h2 class="fw-bold mb-0"><?= esc($role['nama_role'] ?? $role->nama_role ?? 'Spesialisasi') ?></h2>
-                </div>
+        <img src="<?= base_url('uploads/roles/' . esc($role->thumbnail ?? 'default-role.png')) ?>"
+             alt="<?= esc($role->nama_role) ?>"
+             style="width:120px;height:120px;object-fit:cover;border-radius:50%;border:3px solid var(--blue-100);margin:0 auto 18px;display:block;">
 
-                <div class="card-body p-4 p-md-5">
-                    <div class="d-inline-block p-3 rounded-circle bg-light border border-3 border-success mb-3">
-                        <span class="fs-1 fw-bold text-success"><?= $skor_persen ?>%</span>
-                        <small class="d-block text-muted">Kesesuaian (Match)</small>
-                    </div>
+        <h2 style="color: var(--blue-600);"><?= esc($role->nama_role) ?></h2>
 
-                    <h5 class="fw-bold text-dark mt-3 mb-2">Deskripsi Role:</h5>
-                    <p class="text-muted lead fs-6 mb-4">
-                        <?= esc($role['deskripsi'] ?? $role->deskripsi ?? '') ?>
-                    </p>
-
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                        <?php $roleId = $role['id'] ?? $role->id; ?>
-                        <!-- Link disesuaikan ke quiz-role/mulai/ -->
-                        <a href="<?= site_url('quiz-role/mulai/' . $roleId) ?>" class="btn btn-success btn-lg fw-bold px-4">
-                            <i class="bi bi-rocket-takeoff me-2"></i> Mulai Belajar Role Ini
-                        </a>
-                        <a href="<?= site_url('role/jelajahi') ?>" class="btn btn-outline-primary btn-lg fw-bold px-4">
-                            <i class="bi bi-compass me-2"></i> Jelajahi Role Lain
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <a href="<?= site_url('dashboard') ?>" class="text-decoration-none text-muted">
-                <i class="bi bi-house me-1"></i> Kembali ke Dashboard
-            </a>
+        <div class="cl-mb-3">
+            <span class="cl-badge badge-blue" style="font-size:.85rem;padding:6px 14px;">
+                Match <?= esc(number_format((float) $skor_persen, 2)) ?>%
+            </span>
         </div>
+
+        <p class="cl-text-muted"><?= esc($role->deskripsi ?? '') ?></p>
+
+        <div style="border-top:1px solid var(--border); margin: 24px 0;"></div>
+
+        <div class="flex cl-gap-3" style="justify-content:center;">
+            <a href="<?= base_url('quiz-role/mulai/' . esc($role->id, 'attr')) ?>" class="cl-btn cl-btn-primary">Mulai Role Ini</a>
+            <a href="<?= base_url('role/jelajahi') ?>" class="cl-btn btn-outline">Jelajahi Role Lain</a>
+        </div>
+
+        <p class="cl-mt-3"><a href="<?= base_url('quiz-role') ?>" class="cl-small cl-text-muted">Ulangi Quiz</a></p>
     </div>
 </div>
+
 <?= $this->endSection() ?>
