@@ -100,3 +100,35 @@ document.addEventListener("click", function (e) {
     document.querySelector(".topnav-links")?.classList.toggle("is-open");
   }
 });
+
+/**
+ * Scroll-reveal animation (progressive enhancement).
+ * Class 'js-ready' ditambah ke <body> SEBELUM observer di-setup - CSS baru
+ * menyembunyikan .reveal setelah class ini ada. Kalau script ini gagal load
+ * sama sekali, .reveal tidak pernah disembunyikan (tetap terlihat normal).
+ */
+document.body.classList.add("js-ready");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+
+  document.querySelectorAll(".reveal").forEach((el, i) => {
+    el.style.transitionDelay = (i % 6) * 0.08 + "s"; // efek staggered per grup
+    observer.observe(el);
+  });
+} else {
+  // Browser tidak support IntersectionObserver - langsung tampilkan semua
+  document
+    .querySelectorAll(".reveal")
+    .forEach((el) => el.classList.add("is-visible"));
+}
