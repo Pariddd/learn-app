@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <div class="row mb-4 align-items-center">
     <div class="col-md-8">
-        <h1 class="fw-bold text-white">Dashboard Pembelajaran</h1>
+        <h1 class="fw-bold text-black">Dashboard Pembelajaran</h1>
         <p class="text-muted">Pantau progres belajar dan analisis grafik performa kamu di CyberLearn.</p>
     </div>
     <div class="col-md-4 text-md-end">
