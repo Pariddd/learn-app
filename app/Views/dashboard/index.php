@@ -49,38 +49,4 @@
         </div>
     </div>
 </div>
-
-<?php if (!empty($roles_aktif)): ?>
-    <div class="cl-card card-pad cl-mt-3">
-        <p class="eyebrow cl-mb-3">progress per role</p>
-        <canvas id="chartProgressRole" height="90"></canvas>
-    </div>
-
-    <script src="<?= base_url('assets/js/vendor/chart.umd.js') ?>"></script>
-    <script>
-        const dataProgress = <?= json_encode($roles_aktif) ?>;
-        new Chart(document.getElementById('chartProgressRole'), {
-            type: 'bar',
-            data: {
-                labels: dataProgress.map(d => d.nama_role),
-                datasets: [{
-                    data: dataProgress.map(d => d.progress_percentage),
-                    backgroundColor: '#2563eb',
-                    borderRadius: 6,
-                    maxBarThickness: 48,
-                }]
-            },
-            options: {
-                responsive: true,
-                indexAxis: 'y',
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { min: 0, max: 100, ticks: { color: '#5b6b82', callback: v => v + '%' }, grid: { color: '#eef4ff' } },
-                    y: { ticks: { color: '#0b1424' }, grid: { display: false } }
-                }
-            }
-        });
-    </script>
-<?php endif; ?>
-
 <?= $this->endSection() ?>

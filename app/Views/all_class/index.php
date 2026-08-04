@@ -40,7 +40,7 @@
 </div>
 
 <div class="cl-text-center">
-    <?= $pager->links() ?>
+    <?= $pager->links('default', 'cyberlearn') ?>
 </div>
 
 <?= $this->endSection() ?>
