@@ -68,11 +68,11 @@
                                         <small class="fw-bold text-primary"><?= esc($video->watch_percentage) ?>%</small>
                                     </div>
                                     <div class="progress mb-3" style="height: 6px;">
-                                        <div class="progress-bar bg-primary" role="progressbar" 
-                                             style="width: <?= esc($video->watch_percentage) ?>%;" 
-                                             aria-valuenow="<?= esc($video->watch_percentage) ?>" 
-                                             aria-valuemin="0" 
-                                             aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary" role="progressbar"
+                                            style="width: <?= esc($video->watch_percentage) ?>%;"
+                                            aria-valuenow="<?= esc($video->watch_percentage) ?>"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"></div>
                                     </div>
 
                                     <!-- Tombol Tonton Video -->
@@ -117,10 +117,10 @@
 
             <?php if (!empty($roles_with_preview)): ?>
                 <?php foreach ($roles_with_preview as $item): ?>
-                    <?php 
-                        $role = $item['role']; 
-                        $previews = $item['preview_videos'];
-                        $totalVideos = $item['total_videos'];
+                    <?php
+                    $role = $item['role'];
+                    $previews = $item['preview_videos'];
+                    $totalVideos = $item['total_videos'];
                     ?>
                     <div class="col-md-6 mb-4">
                         <div class="card border-0 shadow-sm h-100">
@@ -130,7 +130,7 @@
                             </div>
                             <div class="card-body">
                                 <p class="text-muted small mb-3"><?= esc($role->deskripsi ?? $role['deskripsi'] ?? 'Materi lanjutan spesialisasi.') ?></p>
-                                
+
                                 <h6 class="fw-bold small text-uppercase text-muted mb-2">Preview Modul:</h6>
                                 <ul class="list-group list-group-flush mb-3">
                                     <?php if (!empty($previews)): ?>
@@ -146,8 +146,8 @@
                                 </ul>
                             </div>
                             <div class="card-footer bg-white border-0 pt-0 pb-3">
-                                <a href="<?= site_url('roles/select/' . ($role->id ?? $role['id'])) ?>" class="btn btn-primary w-100 fw-bold">
-                                    <i class="bi bi-plus-circle me-1"></i> Pilih Role Ini
+                                <a href="<?= site_url('role/roadmap/' . ($role->id ?? $role['id'])) ?>" class="cl-btn w-100 text-center fw-bold">
+                                    Lihat Roadmap & Mulai Role
                                 </a>
                             </div>
                         </div>

@@ -47,6 +47,8 @@ $routes->group('admin', ['filter' => 'admin', 'namespace' => 'App\Controllers\Ad
   $routes->get('role/edit/(:num)', 'RoleController::edit/$1');
   $routes->post('role/update/(:num)', 'RoleController::update/$1');
   $routes->get('role/delete/(:num)', 'RoleController::delete/$1');
+  $routes->get('roles/select/(:num)', 'QuizRole::mulaiRole/$1');
+  $routes->get('role/select/(:num)', 'QuizRole::mulaiRole/$1');
 
   $routes->get('kategori', 'KategoriController::index');
   $routes->post('kategori/store', 'KategoriController::store');

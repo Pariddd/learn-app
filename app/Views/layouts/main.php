@@ -7,6 +7,9 @@
     <title>CyberLearn - <?= $title ?? 'Platform Belajar Cybersecurity' ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/css/main.css') ?>">
+    
+    <!-- Chart.js CDN untuk Fitur Visualisasi Grafis -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="grid-bg">
@@ -25,7 +28,7 @@
                 <a href="<?= base_url('riwayat-quiz') ?>" class="<?= str_contains($current, 'riwayat-quiz') ? 'active' : '' ?>">Riwayat Quiz</a>
                 <a href="<?= base_url('profil') ?>" class="<?= str_contains($current, 'profil') ? 'active' : '' ?>">Profil</a>
                 <?php if (session()->get('role') === 'admin'): ?>
-                    <a href="<?= base_url('admin/dashboard') ?>" class="cl-btn  cl-btn-sm">⚙ Dashboard Admin</a>
+                    <a href="<?= base_url('admin/dashboard') ?>" class="cl-btn cl-btn-sm">⚙ Dashboard Admin</a>
                 <?php endif; ?>
                 <a href="<?= base_url('logout') ?>" class="cl-btn btn-outline cl-btn-sm">Logout</a>
             </nav>
